@@ -1,0 +1,362 @@
+[
+    {
+        "name": "batman",
+        "alter": "bruce wayne",
+        "appearance": 1939,
+        "house": "dc",
+        "biography": "",
+        "equipment": "spy equipment",
+        "images": 3
+    },
+    {
+        "name": "superman",
+        "alter": "clark kent",
+        "appearance": 1986,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 3
+    },
+    {
+        "name": "green lantern",
+        "alter": "hal jordan",
+        "appearance": 1959,
+        "house": "dc",
+        "biography": "",
+        "equipment": "magic ring",
+        "images": 3
+    },
+    {
+        "name": "wonder woman",
+        "alter": "diana prince",
+        "appearance": 1941,
+        "house": "dc",
+        "biography": "",
+        "equipment": "lasso of truth, bracelets",
+        "images": 2
+    },
+    {
+        "name": "aquaman",
+        "alter": "arthur curry",
+        "appearance": 1941,
+        "house": "dc",
+        "biography": "",
+        "equipment": "trident of neptune",
+        "images": 3
+    },
+    {
+        "name": "nightwing",
+        "alter": "dick grayson",
+        "appearance": 1963,
+        "house": "dc",
+        "biography": "",
+        "equipment": "spy weapons",
+        "images": 2
+    },
+    {
+        "name": "flash",
+        "alter": "barry allen",
+        "appearance": 1956,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "lex luthor",
+        "alter": "lex luthor",
+        "appearance": 1986,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "joker",
+        "alter": "joker",
+        "appearance": 1940,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "green arrow",
+        "alter": "oliver queen",
+        "appearance": 1941,
+        "house": "dc",
+        "biography": "",
+        "equipment": "bow and arrows",
+        "images": 2
+    },
+    {
+        "name": "martian manhunter",
+        "alter": "j'onn j'onzz",
+        "appearance": 1955,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "firestorm",
+        "alter": "ronald raymond",
+        "appearance": 1978,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "doctor fate",
+        "alter": "doctor fate",
+        "appearance": 1940,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "shazam",
+        "alter": "billy baston",
+        "appearance": 1940,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "dr manhattan",
+        "alter": "jonathan ostenson",
+        "appearance": 1988,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "metamorfo",
+        "alter": "rex mason",
+        "appearance": 1965,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "deathstroke",
+        "alter": "slade wilson",
+        "appearance": 1980,
+        "house": "dc",
+        "biography": "",
+        "equipment": "weapons",
+        "images": 1
+    },
+    {
+        "name": "atom",
+        "alter": "various",
+        "appearance": 1940,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "zatanna",
+        "alter": "zatana zatara",
+        "appearance": 1964,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "blue beetle",
+        "alter": "dan garrett",
+        "appearance": 1939,
+        "house": "dc",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "captain america",
+        "alter": "steve rogers",
+        "appearance": 1918,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "shield",
+        "images": 3
+    },
+    {
+        "name": "winter soldier",
+        "alter": "bucky james",
+        "appearance": 1917,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "left arm",
+        "images": 2
+    },
+    {
+        "name": "hawkeye",
+        "alter": "clint barton",
+        "appearance": 1964,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "bow and arrows",
+        "images": 2
+    },
+    {
+        "name": "red skull",
+        "alter": "johann schmidt",
+        "appearance": 1941,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "cosmic cube",
+        "images": 2
+    },
+    {
+        "name": "punisher",
+        "alter": "francis castle",
+        "appearance": 1974,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "weapons",
+        "images": 3
+    },
+    {
+        "name": "crossbone",
+        "alter": "brock rumlow",
+        "appearance": 1989,
+        "house": "marvel",
+        "biography": "guns",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "cyclops",
+        "alter": "scott summers",
+        "appearance": 1963,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "laser eyes",
+        "images": 3
+    },
+    {
+        "name": "wolverine",
+        "alter": "james logan",
+        "appearance": 1974,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "adamantium claws",
+        "images": 3
+    },
+    {
+        "name": "spider-man",
+        "alter": "peter parker",
+        "appearance": 1962,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "arachnid powers",
+        "images": 3
+    },
+    {
+        "name": "iron man",
+        "alter": "tony stark",
+        "appearance": 1963,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "robotic armor",
+        "images": 3
+    },
+    {
+        "name": "hulk",
+        "alter": "bruce banner",
+        "appearance": 1962,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "he",
+        "images": 1
+    },
+    {
+        "name": "loki",
+        "alter": "loki lafeyston",
+        "appearance": 1962,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "laevatein",
+        "images": 2
+    },
+    {
+        "name": "thor",
+        "alter": "thor odinson",
+        "appearance": 1962,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "mjolnir, stormbreaker",
+        "images": 1
+    },
+    {
+        "name": "groot",
+        "alter": "groot",
+        "appearance": 1960,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "deadpool",
+        "alter": "wade wilson",
+        "appearance": 1991,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "weapons",
+        "images": 3
+    },
+    {
+        "name": "iron fists",
+        "alter": "daniel rand",
+        "appearance": 1974,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "",
+        "images": 3
+    },
+    {
+        "name": "captain marvel",
+        "alter": "caron danvers",
+        "appearance": 1967,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "",
+        "images": 1
+    },
+    {
+        "name": "galactus",
+        "alter": "galactus",
+        "appearance": 1966,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "ultimate nullifier",
+        "images": 2
+    },
+    {
+        "name": "dr strange",
+        "alter": "stephen strange",
+        "appearance": 1963,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "",
+        "images": 2
+    },
+    {
+        "name": "black widow",
+        "alter": "natasha romanoff",
+        "appearance": 1964,
+        "house": "marvel",
+        "biography": "",
+        "equipment": "spy equipment",
+        "images": 2
+    }
+]
