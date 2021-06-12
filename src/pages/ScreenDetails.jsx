@@ -14,27 +14,22 @@ const heroDefault = {
     "house": "",
     "biography": "",
     "equipment": "",
-    "images": []
+    "images": 1
 }
 
 
-const ScreenDetails = () => {
-  
+const ScreenDetails = () => {  
     const params = useParams()
 
     const [heroData, setHero] = useState(heroDefault)
-
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
-
         const response = getSuperheros({heroName:params.name})[0] || heroDefault
         setHero(response)
-
         setLoading(false)
     }, [params.name])
-
     
     return(
         <>

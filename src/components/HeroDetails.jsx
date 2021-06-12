@@ -16,13 +16,12 @@ const HeroDetails = ({ hero }) => {
     let numberImagesList = []
     for(let i=1; i<images+1; i++) numberImagesList.push(i)
 
-
     return ( 
         <div className="Details container-fluid p-5">
             <div className="row mx-5">
                 <div className="col-6 p-5">
                     
-                    <div id="images-carousel" className="carousel carousel-dark" data-bs-ride="carousel">
+                    <div id="images-carousel" className="carousel carousel-dark" data-bs-ride="carousel" data-interval="false">
                         <div className="carousel-inner">
                             {
                                 numberImagesList.map( number => (
@@ -34,6 +33,7 @@ const HeroDetails = ({ hero }) => {
                                             src={`../assets/img/characters/${name}${number}.png`}
                                             className="d-block w-100"
                                             alt={`${name}${number}`}
+                                            style={{width:"100%", height:"500px"}}
                                         />
                                     </div>
                                 ))

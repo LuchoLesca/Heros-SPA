@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect , useContext} from 'react';
 import { useHistory } from 'react-router-dom';
+import Context from '../context/Context';
 
 import Loading from '../components/Loading';
 import ListHeros from '../components/ListHeros';
@@ -7,7 +8,10 @@ import ListHeros from '../components/ListHeros';
 import getSuperheros from '../services/getSuperheros';
 
 
+
 const HerosSearching = () => {
+    
+    const { name } = useContext(Context)
 
     const history = useHistory()
     const house = history.location.pathname.split("/")[history.location.pathname.split("/").length - 1]
@@ -17,15 +21,11 @@ const HerosSearching = () => {
 
     useEffect(() => {
         setLoading(true)
-
-        const response = getSuperheros({ heroHouse:house })
-        setHeros(response)
-
+        setHeros(getSuperheros({heroName:name, heroHouse:house }))
         setLoading(false)
-    }, [house])
+    }, [name, house])
 
-    
-    return <>
+        return <>
             {loading
                 ?   <Loading />
                 :   <ListHeros heros={heros}/>

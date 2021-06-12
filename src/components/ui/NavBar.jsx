@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import Context from '../../context/Context';
 
 const Navbar = () => {
+    const {name, setName} = useContext(Context)
 
-    const [search, setSearch] = useState('')
-    
     const handleInput = (evt) => {
-        setSearch(evt.target.value)
-    }    
+        setName(evt.target.value)
+    }
 
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
@@ -16,14 +16,17 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink className="nav-link" aria-current="page" to="/marvel">Marvel</NavLink>
+                            <NavLink className="nav-link me-2" to="/marvel">Marvel</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/dc">DC</NavLink>
+                            <NavLink className="nav-link me-2" to="/dc">DC</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="nav-link me-2" to="/add">Add Hero</NavLink>
                         </li>
                     </ul>
                     <div className="d-flex">
-                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={handleInput}/>
+                        <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={name} onChange={handleInput}/>
                     </div>
                 </div>
             </div>
