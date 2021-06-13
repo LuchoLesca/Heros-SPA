@@ -1,12 +1,11 @@
 import React, { useState, useEffect , useContext} from 'react';
 import { useHistory } from 'react-router-dom';
-import Context from '../context/Context';
+import Context from '../context/SearchContext';
 
 import Loading from '../components/Loading';
 import ListHeros from '../components/ListHeros';
 
 import getSuperheros from '../services/getSuperheros';
-
 
 
 const HerosSearching = () => {

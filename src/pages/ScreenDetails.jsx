@@ -19,23 +19,23 @@ const heroDefault = {
 
 
 const ScreenDetails = () => {  
-    const params = useParams()
+    const { name } = useParams()
 
     const [heroData, setHero] = useState(heroDefault)
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
         setLoading(true)
-        const response = getSuperheros({heroName:params.name})[0] || heroDefault
+        const response = getSuperheros({heroName:name})[0] || heroDefault
         setHero(response)
         setLoading(false)
-    }, [params.name])
+    }, [name])
     
     return(
         <>
             {loading
                 ? <Loading/>
-                : <HeroDetails hero={heroData} />
+                : <HeroDetails heroData={heroData} />
             }
         </>
     )

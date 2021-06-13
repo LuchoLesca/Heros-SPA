@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import Context from '../../context/Context';
+import SearchContext from '../../context/SearchContext';
 
 const Navbar = () => {
-    const {name, setName} = useContext(Context)
+    const {name, setName} = useContext(SearchContext)
 
     const handleInput = (evt) => {
         setName(evt.target.value)
