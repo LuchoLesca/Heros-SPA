@@ -15,4 +15,4 @@ const ListHeros = ({ heros }) => {
     )
 }
 
-export default React.memo(ListHeros);
+export default ListHeros;

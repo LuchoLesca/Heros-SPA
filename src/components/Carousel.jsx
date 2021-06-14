@@ -1,17 +1,12 @@
 import React from 'react';
 
+import setDefaultSrc from '../utils/setDefaultSrc.js';
+
+
 function Carousel({ name, images }) {
 
-    const setDefaultSrc = (evt) => {
-        evt.target.src = "/assets/img/default.png"
-    }
-
-
     let numberImagesList = []
-    for(let i = 1; i < parseInt(images)+1; i++){
-        numberImagesList.push(i)
-    }
-    
+    for(let i = 1; i < parseInt(images)+1; i++) numberImagesList.push(i) 
 
     return (
         <div id="images-carousel" className="carousel slide carousel-dark" data-bs-interval="false" data-bs-ride="false">

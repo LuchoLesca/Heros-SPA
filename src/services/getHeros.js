@@ -1,6 +1,6 @@
 const herosData = require("../data/herosData.json");
 
-const getSuperheros = ({heroName, heroHouse}) => {
+const getHeros = ({heroName, heroHouse}) => {
     if (!heroHouse) {
         heroHouse = "dc/marvel"
     }
@@ -11,4 +11,4 @@ const getSuperheros = ({heroName, heroHouse}) => {
     }
 }
 
-export default getSuperheros;
+export default getHeros;

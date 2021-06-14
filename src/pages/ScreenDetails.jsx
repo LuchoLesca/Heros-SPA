@@ -2,31 +2,21 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
 import Loading from '../components/Loading';
-
-import getSuperheros from '../services/getSuperheros';
 import HeroDetails from '../components/HeroDetails';
 
-
-const heroDefault = { 
-    "name": "",
-    "alter": "",
-    "appearance": 0,
-    "house": "",
-    "biography": "",
-    "equipment": "",
-    "images": 1
-}
+import getHero from '../services/getHero';
+import { defaultHero } from '../utils/defaultObjets';
 
 
 const ScreenDetails = () => {  
     const { name } = useParams()
 
-    const [heroData, setHero] = useState(heroDefault)
     const [loading, setLoading] = useState(false)
+    const [heroData, setHero] = useState(defaultHero)
 
     useEffect(() => {
         setLoading(true)
-        const response = getSuperheros({heroName:name})[0] || heroDefault
+        const response = getHero(name)
         setHero(response)
         setLoading(false)
     }, [name])
