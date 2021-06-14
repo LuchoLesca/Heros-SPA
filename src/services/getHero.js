@@ -1,7 +1,7 @@
-import getHeros from "./getHeros";
+const herosData = require('data/herosData.json')
 
 const getHero = (name) => {
-    const hero = getHeros({heroName:name})[0]
+    const hero = herosData.find(hero => (hero.name.trim().toLowerCase() === name.trim().toLowerCase()))
     return hero
 }
 

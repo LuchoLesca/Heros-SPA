@@ -1,5 +1,5 @@
-const deleteHero = (heroName) => {
-    console.log(`Hero ${heroName||""} deleted`)
+const deleteHero = (id) => {
+    console.log(`Hero with id ${id} deleted`)
 }
 
 export default deleteHero;

@@ -1,5 +1,5 @@
-const updateHero = (originalName, hero={}) => {
-    console.log(`Hero ${originalName||""} updated with info:`)
+const updateHero = (id, hero) => {
+    console.log(`Hero ${id} updated with info:`)
     console.log(hero)
 }
 

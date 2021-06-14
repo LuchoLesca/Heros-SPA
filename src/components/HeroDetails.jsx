@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
@@ -5,28 +6,28 @@ import Carousel from './Carousel';
 
 import {capitalize} from 'utils/stringTreatment.js';
 import setDefaultSrc from 'utils/setDefaultSrc.js';
+// eslint-disable-next-line
 import { defaultHero, defaultHouses } from 'utils/defaultObjets';
 
 import updateHero from 'services/updateHero';
 import deleteHero from 'services/deleteHero';
 
 
-const HeroDetails = ({ heroData }) => {
+const HeroDetails = ({ hero, setHero }) => {
 
-    const history = useHistory()
-  
-    const [hero, setHero] = useState(defaultHero)
-
+    const history = useHistory()   
+/* 
     useEffect(() => {
         setHero(heroData)
     }, [heroData])
-
+ */
     const handleChange = (evt) => {
         setHero({
             ...hero,
             [evt.target.name] : evt.target.value.toLowerCase()
         })
     }
+    
 
     return ( 
         <div className="Details container-fluid p-5">
@@ -36,7 +37,7 @@ const HeroDetails = ({ heroData }) => {
                     <Carousel
                         name={hero.name}
                         images={hero.images}
-                    />
+                    />    
                 </div>
                 {/* Form */}
                 <div className="col-6 p-5">
@@ -100,8 +101,8 @@ const HeroDetails = ({ heroData }) => {
                     </div>
                     <div className="form-group mb-3">
                         <button className="btn btn-dark" onClick={() => history.goBack()}>Back</button>
-                        <button className="btn btn-warning mx-2" name="update" onClick={() => updateHero(heroData.name, hero)}>Update</button>
-                        <button className="btn btn-danger" name="delete" onClick={() => deleteHero(hero.name)}>Delete</button>
+                        <button className="btn btn-warning mx-2" name="update" onClick={() => updateHero(hero.id, hero)}>Update</button>
+                        <button className="btn btn-danger" name="delete" onClick={() => deleteHero(hero.id)}>Delete</button>
                     </div>
                 </div>
             </div>

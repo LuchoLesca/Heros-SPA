@@ -25,7 +25,7 @@ const ScreenDetails = () => {
         <>
             {loading
                 ? <Loading/>
-                : <HeroDetails heroData={heroData} />
+                : <HeroDetails hero={heroData} setHero={setHero} />
             }
         </>
     )
