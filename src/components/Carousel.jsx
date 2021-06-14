@@ -1,6 +1,6 @@
 import React from 'react';
 
-import setDefaultSrc from '../utils/setDefaultSrc.js';
+import setDefaultSrc from 'utils/setDefaultSrc.js';
 
 
 function Carousel({ name, images }) {

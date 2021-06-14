@@ -1,4 +1,4 @@
-const herosData = require("../data/herosData.json");
+const herosData = require("data/herosData.json");
 
 const getHeros = ({heroName, heroHouse}) => {
     if (!heroHouse) {

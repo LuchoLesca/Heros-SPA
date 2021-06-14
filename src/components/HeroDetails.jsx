@@ -3,12 +3,12 @@ import { useHistory } from 'react-router-dom';
 
 import Carousel from './Carousel';
 
-import {capitalize} from '../utils/stringTreatment.js';
-import setDefaultSrc from '../utils/setDefaultSrc.js';
-import { defaultHero, defaultHouses } from '../utils/defaultObjets';
+import {capitalize} from 'utils/stringTreatment.js';
+import setDefaultSrc from 'utils/setDefaultSrc.js';
+import { defaultHero, defaultHouses } from 'utils/defaultObjets';
 
-import updateHero from '../services/updateHero';
-import deleteHero from '../services/deleteHero';
+import updateHero from 'services/updateHero';
+import deleteHero from 'services/deleteHero';
 
 
 const HeroDetails = ({ heroData }) => {

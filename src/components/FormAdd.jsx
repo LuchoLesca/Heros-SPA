@@ -2,10 +2,10 @@ import React from 'react'
 
 import { useHistory } from 'react-router-dom';
 
-import saveHero from '../services/saveHero';
-import { capitalize } from '../utils/stringTreatment.js';
-import setDefaultSrc from '../utils/setDefaultSrc.js';
-import { defaultHouses } from '../utils/defaultObjets';
+import saveHero from 'services/saveHero';
+import { capitalize } from 'utils/stringTreatment.js';
+import setDefaultSrc from 'utils/setDefaultSrc.js';
+import { defaultHouses } from 'utils/defaultObjets';
 
 
 

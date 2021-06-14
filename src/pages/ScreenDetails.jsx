@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 
-import Loading from '../components/Loading';
-import HeroDetails from '../components/HeroDetails';
+import Loading from 'components/Loading';
+import HeroDetails from 'components/HeroDetails';
 
-import getHero from '../services/getHero';
-import { defaultHero } from '../utils/defaultObjets';
+import getHero from 'services/getHero';
+import { defaultHero } from 'utils/defaultObjets';
 
 
 const ScreenDetails = () => {  

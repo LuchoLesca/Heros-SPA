@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 
-import Carousel from '../components/Carousel';
-import FormAdd from '../components/FormAdd';
+import Carousel from 'components/Carousel';
+import FormAdd from 'components/FormAdd';
 
-import { defaultHero } from '../utils/defaultObjets';
+import { defaultHero } from 'utils/defaultObjets';
 
 
 const AddHero = () => {

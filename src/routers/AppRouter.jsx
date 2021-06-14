@@ -1,13 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
-import NavBar from '../components/ui/NavBar';
-import HerosSearching from '../pages/ScreenHeros';
-import ScreenDetails from '../pages/ScreenDetails';
-import AddHero from '../pages/AddHero';
-import Error404 from '../pages/Error404';
+import NavBar from 'components/ui/NavBar';
+import HerosSearching from 'pages/ScreenHeros';
+import ScreenDetails from 'pages/ScreenDetails';
+import AddHero from 'pages/AddHero';
+import Error404 from 'pages/Error404';
 
-import { SearchContextProvider } from '../context/SearchContext';
+import { SearchContextProvider } from 'context/SearchContext';
 
 
 const AppRouter = () => {

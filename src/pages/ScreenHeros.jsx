@@ -1,12 +1,12 @@
 import React, { useState, useEffect , useContext} from 'react';
 import { useHistory } from 'react-router-dom';
-import Context from '../context/SearchContext';
+import Context from 'context/SearchContext';
 
-import Loading from '../components/Loading';
-import ListHeros from '../components/ListHeros';
+import Loading from 'components/Loading';
+import ListHeros from 'components/ListHeros';
 
-import getHeros from '../services/getHeros';
-import { dynamicSort } from '../utils/sort';
+import getHeros from 'services/getHeros';
+import { dynamicSort } from 'utils/sort';
 
 
 const HerosSearching = () => {

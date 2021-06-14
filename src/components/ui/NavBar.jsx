@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink, Link } from 'react-router-dom'
-import SearchContext from '../../context/SearchContext';
+import SearchContext from 'context/SearchContext';
 
 const Navbar = () => {
     const {name, setName} = useContext(SearchContext)
