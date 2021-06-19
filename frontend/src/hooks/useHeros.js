@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import getSuperheros from 'services/getSuperheros';
+import { getHeros } from 'services/db_functions';
 
 // Recibe el nombre y la casa. El objeto loading se devuelve para saber si ya se realizó la búsqueda. El objeto heros devuelve los resultados
 const useHeros = ({ name, house }) => {
@@ -9,7 +9,7 @@ const useHeros = ({ name, house }) => {
 
     useEffect(() => {
         setLoading(true)
-        const newHeros = getSuperheros({
+        const newHeros = getHeros({
                             heroName:name,
                             heroHouse:house
                         })

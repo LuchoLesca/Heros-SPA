@@ -5,7 +5,7 @@ import Context from 'context/SearchContext';
 import Loading from 'components/Loading';
 import ListHeros from 'components/ListHeros';
 
-import getHeros from 'services/getHeros';
+import { getHeros } from 'services/db_functions';
 import { dynamicSort } from 'utils/sort';
 
 

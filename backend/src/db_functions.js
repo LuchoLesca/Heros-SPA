@@ -33,10 +33,31 @@ db_functions.getDatabases = async() => {
     }
 }
 
-db_functions.getAllHeros = async() => {
+db_functions.findAll = async() => {
     try{
         await client.connect()
-        const cursor = await client.db(DB_NAME).collection(COLLECTION).find().sort({name: 1})
+        const cursor = await client.db(DB_NAME).collection(COLLECTION).find({}).sort({name: 1})
+
+        const results = await cursor.toArray()
+
+        if (results.length > 0) {
+            return results.map(result => result);
+        }
+        return []
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.findMultiByHouseAndName = async(client, {nameToSearch="", houseToSearch=""}) => {
+    try{
+        await client.connect()
+        const cursor = await client.db(DB_NAME).collection(COLLECTION).find({
+            house: houseToSearch,
+            name: {$regex: nameToSearch}
+        }).sort({name: 1})
     
         const results = await cursor.toArray()
     
@@ -49,10 +70,95 @@ db_functions.getAllHeros = async() => {
     } finally {
         await client.close();
     }
+    
 }
 
-module.exports = db_functions
+db_functions.findByHouse = async(houseToSearch) => {
+    try{
+        await client.connect()
+        const cursor = await client.db(DB_NAME).collection(COLLECTION).find({house: houseToSearch}).sort({name: 1})
 
+        const results = await cursor.toArray()
+
+        if (results.length > 0) {
+            return results.map(result => result);
+        }
+        return []
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.findByName = async(nameToSearch) => {
+    try{
+        await client.connect()
+        const response = await client.db(DB_NAME).collection(COLLECTION).findOne({name: nameToSearch})
+
+        if (response) {
+            return response
+        }
+        return []
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.findById = async(id) => {
+    try{
+        await client.connect()
+        const response = await client.db(DB_NAME).collection(COLLECTION).findOne({_id: ObjectID(id)})
+
+        if (response) {
+            return response
+        }
+        return []
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.insertHero = async(hero) => {
+    try{
+        await client.connect()
+        await client.db(DB_NAME).collection(COLLECTION).insertOne(hero)
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.updateHero = async(id, hero) => {
+    try{
+        await client.connect()
+        await client.db(DB_NAME).collection(COLLECTION).updateOne({_id: ObjectID(id)}, hero)
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+db_functions.deleteHero = async(id) => {
+    try{
+        await client.connect()
+        await client.db(DB_NAME).collection(COLLECTION).deleteOne({_id: ObjectID(id)})
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+
+module.exports = db_functions
+/*
 // main().catch(console.error);
 
 // <<<<<<<<<<<    INSERCIONES
@@ -202,3 +308,4 @@ async function deleteDocumentById(client, id){
     console.log(response)
 
 }
+*/

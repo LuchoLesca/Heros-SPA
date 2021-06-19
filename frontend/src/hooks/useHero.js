@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-import getHero from 'services/getHero';
+import { getHero } from 'services/db_functions';
 
 const useHero = (name) => {
 

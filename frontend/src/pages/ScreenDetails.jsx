@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import Loading from 'components/Loading';
 import HeroDetails from 'components/HeroDetails';
 
-import getHero from 'services/getHero';
+import { getHero } from 'services/db_functions';
 import { defaultHero } from 'utils/defaultObjets';
 
 

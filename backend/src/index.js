@@ -2,7 +2,6 @@
 // Aqui importaremos los demás módulos
 
 const app = require('./app');
-require('./database');
 
 
 async function main(){

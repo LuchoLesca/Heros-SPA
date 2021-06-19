@@ -11,4 +11,6 @@ const getHeros = ({heroName, heroHouse}) => {
     }
 }
 
+
+
 export default getHeros;

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useHistory } from 'react-router-dom';
 
-import saveHero from 'services/saveHero';
+import { saveHero } from 'services/db_functions';
 import { capitalize } from 'utils/stringTreatment.js';
 import setDefaultSrc from 'utils/setDefaultSrc.js';
 import { defaultHouses } from 'utils/defaultObjets';

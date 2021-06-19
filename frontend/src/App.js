@@ -1,5 +1,5 @@
 import AppRouter from './routers/AppRouter';
-// require('./database')
+
 
 function App() {
   return (

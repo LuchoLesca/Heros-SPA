@@ -9,8 +9,7 @@ import setDefaultSrc from 'utils/setDefaultSrc.js';
 // eslint-disable-next-line
 import { defaultHero, defaultHouses } from 'utils/defaultObjets';
 
-import updateHero from 'services/updateHero';
-import deleteHero from 'services/deleteHero';
+import { updateHero, deleteHero } from 'services/db_functions';
 
 
 const HeroDetails = ({ hero, setHero }) => {
