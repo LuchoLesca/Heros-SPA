@@ -1,78 +1,52 @@
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectID } = require("mongodb");
 
-// Connection URI
-/* 
-const uri =
-  "mongodb+srv://sample-hostname:27017/?poolSize=20&writeConcern=majority";
-   */
 const DB_NAME = "herosdb"
 const COLLECTION =  "heros"
+const URI = "mongodb://localhost:27017"
 
-// Create a new MongoClient
-// const client = new MongoClient(uri);
+const client = new MongoClient(URI, {useUnifiedTopology:true});
+
+const db_functions = {}
+
 async function main() {
-    const uri = "mongodb://localhost:27017"
-    // Create client
-    const client = new MongoClient(uri, {useUnifiedTopology:true});
     try{
-        // Connect the client to the server
-        await client.connect();
-
-        // List databases in server
-        // await listDatabases(client)
-
-        // Insert document
-        /*
-        await insertDocument(client, {
-            name: "crazy hero",
-            alter: "reloco Manly"
-        })
-        */
-
-        // Insert documents
-        /*
-        await insertMultipleDocuments(client, [
-            {
-                name: "crazy hero",
-                alter: "reloco Manly"
-            },
-            {
-                name: "metastasis",
-                alter: "Fel Rodriguez",
-                year: 1923
-            }
-        ])
-        */
-
-        // Read (find) one document for name
-        // await findOneDocumentByName(client, "batman")
-
-        // Find documents with match with name passes, in both houses
-        // await findDocumentsByName(client, "b")
-
-        // Find documents by house
-        // await findDocumentsByHouse(client, "marvel")
-
-        // Find document for house and name
-        // await findDocumentsByNameAndHouse(client, {nameToSearch:"b", houseToSearch:"dc"})
-
-
+        await client.connect()
     } catch(e){
         console.error(e);
     } finally {
         await client.close();
     }
 }
-main().catch(console.error);
+
+db_functions.getDatabases = async() => {
+    try{
+        await client.connect()
+        const databasesList = await client.db().admin().listDatabases()
+        if(databasesList){
+            return databasesList.databases.map(db => db.name)
+        }
+        return []
+    } catch(e){
+        console.error(e);
+    } finally {
+        await client.close();
+    }
+}
+
+module.exports = db_functions
+
+// main().catch(console.error);
 
 // <<<<<<<<<<<    INSERCIONES
 // Insert one document
+// eslint-disable-next-line
 async function insertDocument(client, newDocument){
     const response = await client.db(DB_NAME).collection(COLLECTION).insertOne(newDocument)
     console.log(`New document created with de following id: ${response.insertedId}`); 
 }
 
 // Insert many documents
+// eslint-disable-next-line
 async function insertMultipleDocuments(client, documentsArray){
     const response = await client.db(DB_NAME).collection(COLLECTION).insertMany(documentsArray)
     console.log(`${response.insertedCount} new documents created with the following ids`);
@@ -81,9 +55,12 @@ async function insertMultipleDocuments(client, documentsArray){
 
 
 // <<<<<<<<<<<    LECTURAS
+
 //Find one document by name in all houses
-async function findOneDocumentByName(client, nameToSearch){
-    const response = await client.db(DB_NAME).collection(COLLECTION).findOne({name: nameToSearch})
+// eslint-disable-next-line
+async function findDocumentById(client, id){
+    const idToCompare = ObjectID(id)
+    const response = await client.db(DB_NAME).collection(COLLECTION).findOne({_id: idToCompare})
 
     if (response) {
         console.log(`Document founded`);
@@ -93,7 +70,21 @@ async function findOneDocumentByName(client, nameToSearch){
     }
 }
 
+//Find one document by name in all houses
+// eslint-disable-next-line
+async function findOneDocumentByName(client, nameToSearch){
+    const response = await client.db(DB_NAME).collection(COLLECTION).findOne({name: nameToSearch})
+
+    if (response) {
+        console.log(`Document founded`);
+        console.log(response._id.toString());
+    }else{
+        console.log(`Document dont founded`);
+    }
+}
+
 // find all documents in both houses
+// eslint-disable-next-line
 async function findDocumentsByName(client, nameToSearch){
     const cursor = await client.db(DB_NAME).collection(COLLECTION).find({name: {$regex: nameToSearch}}).sort({name: 1})
 
@@ -113,6 +104,7 @@ async function findDocumentsByName(client, nameToSearch){
 }
 
 // find all documents in house
+// eslint-disable-next-line
 async function findDocumentsByHouse(client, houseToSearch){
     const cursor = await client.db(DB_NAME).collection(COLLECTION).find({house: houseToSearch}).sort({name: 1})
 
@@ -131,6 +123,7 @@ async function findDocumentsByHouse(client, houseToSearch){
 }
 
 // find all documents that match with name in gived house
+// eslint-disable-next-line
 async function findDocumentsByNameAndHouse(client, {nameToSearch="", houseToSearch=""}){
     const cursor = await client.db(DB_NAME).collection(COLLECTION).find({
         house: houseToSearch,
@@ -151,8 +144,8 @@ async function findDocumentsByNameAndHouse(client, {nameToSearch="", houseToSear
     }
 }
 
-
 // List all Databases
+// eslint-disable-next-line
 async function listDatabases(client){
     const databasesList = await client.db().admin().listDatabases()
 
@@ -164,3 +157,30 @@ async function listDatabases(client){
 
 
 // <<<<<<<<<<<    ACTUALIZACIONES
+
+// Update single document
+// eslint-disable-next-line
+async function updateOneDocumentByName(client, nameToSearch, updatedDocument){
+    const result = await client.db(DB_NAME).collection(COLLECTION).updateOne({name: nameToSearch}, {$set: updatedDocument})
+
+    console.log(`${result.matchedCount} document(s) matched the query criteria`)
+    console.log(`${result.modifiedCount} document(s) was/where updated`)
+}
+
+
+// <<<<<<<<<<<    DELETE
+
+// Delete single document
+// eslint-disable-next-line
+async function deleteDocumentByName(client, nameToDelete){
+    const response = await client.db(DB_NAME).collection(COLLECTION).deleteOne({ name: nameToDelete })
+    console.log(response)
+}
+
+// eslint-disable-next-line
+async function deleteDocumentById(client, id){
+    const idToCompare = ObjectID(id)
+    const response = await client.db(DB_NAME).collection(COLLECTION).deleteOne({ _id: idToCompare })
+    console.log(response)
+
+}

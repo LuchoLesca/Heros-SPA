@@ -96,7 +96,7 @@ const HeroDetails = ({ hero, setHero }) => {
                         </div>
                     </div>
                     <div className="form-group mb-3">
-                        <button className="btn btn-dark" onClick={() => history.goBack()}>Back</button>
+                        <button className="btn btn-dark" onClick={ history.goBack }>Back</button>
                         <button className="btn btn-warning mx-2" name="update" onClick={() => updateHero(hero.id, hero)}>Update</button>
                         <button className="btn btn-danger" name="delete" onClick={() => deleteHero(hero.id)}>Delete</button>
                     </div>
