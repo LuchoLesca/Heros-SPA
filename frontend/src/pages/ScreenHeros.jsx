@@ -6,10 +6,9 @@ import Loading from 'components/Loading';
 import ListHeros from 'components/ListHeros';
 
 import { getHeros } from 'services/db_functions';
-import { dynamicSort } from 'utils/sort';
-
 
 const HerosSearching = () => {
+
     
     const { name } = useContext(Context)
     const history = useHistory()
@@ -18,10 +17,14 @@ const HerosSearching = () => {
     const [loading, setLoading] = useState(false)
     const [heros, setHeros] = useState([])
 
+        
     useEffect(() => {
+        const fetchHeros = async() => {
+            const res = await getHeros({house, name})
+            setHeros(res.data)
+        }
         setLoading(true)
-        const response = getHeros({heroName:name, heroHouse:house }).sort(dynamicSort("name"))
-        setHeros(response)
+        fetchHeros()
         setLoading(false)
     }, [name, house])
 

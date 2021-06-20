@@ -1,40 +1,44 @@
 const herosCtrl = {};
 
-const { getDatabases, findAll, findMultiByHouseAndName, findByHouse, findByName, findById, insertHero, updateHero, deleteHero } = require('../db_functions');
+const db = require('../db_functions');
 
 herosCtrl.getAllHeros = async (req, res) => {
-    const heros = await findAll()
+    const house = req.query.house || ""
+    const name = req.query.name || ""
+    const heros = await db.find(house, name)
     res.send(heros)
 }
 
-herosCtrl.getMarvelHeros = async (req, res) => {
-    const heros = await findByHouse("marvel")
-    res.send(heros)
+herosCtrl.getHeroById = async (req, res) => {
+    const id = req.params.id || 'putWhatEverYouWantHere'
+    const response = await db.findById(id)
+    res.send(response)
 }
 
-herosCtrl.getDcHeros = async (req, res) => {
-    const heros = await findByHouse("dc")
-    res.send(heros)
-}
-
-herosCtrl.getHeroByName = async (req, res) => {
-    const hero = await findByName(name)
-    res.send("")
-}
 
 herosCtrl.addHero = async (req, res) => {
-    await insertHero(hero)
-    res.send("")
+    const hero = req.body || {}
+    if (hero) {
+        await db.insert(hero)
+        console.log("agregado")
+    }else{
+        console.log("no agregado")
+    }
 }
+
 
 herosCtrl.updateHero = async (req, res) => {
-    await updateHero(id, hero)
-    res.send("")
+    const id = req.params.id || 0
+    const hero = req.body || {}
+    await db.update(id, hero)
+    res.send("Hero updated")
 }
 
+
 herosCtrl.deleteHero = async (req, res) => {
-    await deleteHero(id)
-    res.send("")
+    const id = req.params.id || 0
+    await db.delete(id)
+    res.send("Hero deleted")
 }
 
 

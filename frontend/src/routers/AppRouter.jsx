@@ -16,14 +16,14 @@ const AppRouter = () => {
             <SearchContextProvider>
                 <Router>
                     <NavBar />
-                    <div className="container mt-5">
+                    <div className="container mt-5 p-5">
                         <Switch>
-                            <Route exact path="/hero/:name" component={ScreenDetails} />
+                            <Route exact path="/hero/:id" component={ScreenDetails} />
                             <Route exact path="/marvel" component={HerosSearching} />
                             <Route exact path="/dc" component={HerosSearching} />
                             <Route exact path="/add" component={AddHero} />
                             <Route exact path ="/" component={HerosSearching} />
-                            <Route path ="*" component={Error404} />
+                            <Route path="*" component={Error404} />
                         </Switch>
                     </div>
                 </Router>

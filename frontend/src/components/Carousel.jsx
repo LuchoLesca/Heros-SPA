@@ -27,7 +27,7 @@ function Carousel({ name, images }) {
             </div>
             
             {/* Content */}
-            <div className="carousel-inner">
+            <div className="carousel-inner h-100">
                 {
                     numberImagesList.map( number => (
                         <div
@@ -38,7 +38,7 @@ function Carousel({ name, images }) {
                                 src={`/assets/img/characters/${name.concat(number)}.png`}
                                 className="d-block w-100 img-thumbnail"
                                 alt={`${name}${number}`}
-                                style={{height:"500px", objectFit:"contain"}}
+                                style={{height:"600px", objectFit:"contain"}}
                                 onError={setDefaultSrc}
                             />
                         </div>

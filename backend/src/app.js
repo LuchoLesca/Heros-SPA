@@ -18,7 +18,7 @@ app.use(express.json())  // para que el servidor pueda entender formatos json y 
 
 // Routes (definimos las urls que la app de react podrá visitar/solicitar/acceder)
 
-app.use('/api/heros', require('./routes/heros'))
+app.use('/api', require('./routes/heros'))
 
 
 module.exports = app;

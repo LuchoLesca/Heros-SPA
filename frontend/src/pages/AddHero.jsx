@@ -11,7 +11,7 @@ const AddHero = () => {
     const [hero, setHero] = useState(defaultHero)
 
     return ( 
-        <div className="Details container-fluid p-5">
+        <div className="Details container-fluid">
             <div className="row mx-5">
                 {/* Carousel */}
                 <div className="col-6 p-5">

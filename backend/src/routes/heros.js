@@ -3,26 +3,20 @@
 const { Router } = require('express');
 const router = Router();
 
-const { getAllHeros, getMarvelHeros, getDcHeros, getHeroByName, addHero, updateHero, deleteHero } = require('../controllers/heros.controller')
+const { getAllHeros, getHeroById, addHero, updateHero, deleteHero } = require('../controllers/heros.controller')
 
 // '/' Hace referencia a la ruta principal que lo usa, en este cas, hace referencia a /api/notes
 
-router.route('/')
+router.route('/heros')
     .get(getAllHeros)
 
-router.route('/marvel')
-    .get(getMarvelHeros)
-
-router.route('/dc')
-    .get(getDcHeros)
-
-router.route('/hero/:name')
-    .get(getHeroByName)
-    .post(updateHero)
-    .delete(deleteHero)
-
-router.route('/add')
+router.route('/hero')
     .post(addHero)
+
+router.route('/hero/:id')
+    .get(getHeroById)
+    .put(updateHero)
+    .delete(deleteHero)
 
 
 module.exports = router;

@@ -9,23 +9,26 @@ import { defaultHero } from 'utils/defaultObjets';
 
 
 const ScreenDetails = () => {  
-    const { name } = useParams()
+    const id = useParams().id
 
     const [loading, setLoading] = useState(false)
     const [heroData, setHero] = useState(defaultHero)
 
     useEffect(() => {
+        const fetchData = async() => {
+            const res = await getHero(id)
+            setHero(res.data)
+        }
         setLoading(true)
-        const response = getHero(name)
-        setHero(response)
+        fetchData()
         setLoading(false)
-    }, [name])
+    }, [id])
     
     return(
         <>
             {loading
                 ? <Loading/>
-                : <HeroDetails hero={heroData} setHero={setHero} />
+                : <HeroDetails hero={heroData}/>
             }
         </>
     )

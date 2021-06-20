@@ -25,17 +25,17 @@ const HeroDetails = ({ hero, setHero }) => {
     
 
     return ( 
-        <div className="Details container-fluid p-5">
-            <div className="row mx-5">
+        <div className="Details container-fluid">
+            <div className="row">
                 {/* Carousel */}
-                <div className="col-6 p-5">
+                <div className="col-6">
                     <Carousel
                         name={hero.name}
                         images={hero.images}
                     />    
                 </div>
                 {/* Form */}
-                <div className="col-6 p-5">
+                <div className="col-6">
                     <div className="form-group mb-3">
                         <label className="form-label">Superhero Name:</label>
                         <input className="form-control" name="name" value={capitalize(hero.name)} onChange={handleChange}/>
