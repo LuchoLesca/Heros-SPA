@@ -12,10 +12,10 @@ router.route('/heros')
 
 router.route('/hero')
     .post(addHero)
+    .put(updateHero)
 
 router.route('/hero/:id')
     .get(getHeroById)
-    .put(updateHero)
     .delete(deleteHero)
 
 

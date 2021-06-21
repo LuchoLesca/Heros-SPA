@@ -23,8 +23,6 @@ main()
 
 db_functions.find = async(houseToSearch="", nameToSearch="") => {
     try{
-        // await client.connect()
-
         if (houseToSearch === ""){
             const cursor = await client.db(DB_NAME).collection(COLLECTION).find({name: {$regex: nameToSearch}}).sort({name: 1})
             const results = await cursor.toArray()
@@ -50,7 +48,7 @@ db_functions.find = async(houseToSearch="", nameToSearch="") => {
     }
 }
 
-db_functions.findById = async(id) => {
+db_functions.findById = async(id=0) => {
     try{
         const response = await client.db(DB_NAME).collection(COLLECTION).findOne({_id: ObjectID(id)})
         if (response) {
@@ -62,34 +60,30 @@ db_functions.findById = async(id) => {
     }
 }
 
-
-db_functions.insert = async(hero) => {
+db_functions.insert = async(hero={}) => {
     try{
-        await client.db(DB_NAME).collection(COLLECTION).insertOne(hero)
+        const response = await client.db(DB_NAME).collection(COLLECTION).insertOne(hero)
+        return response
     } catch(e){
         console.error(e);
     }
 }
 
-db_functions.update = async(id, hero) => {
+db_functions.delete = async(id=0) => {
     try{
-        await client.connect()
-        await client.db(DB_NAME).collection(COLLECTION).updateOne({_id: ObjectID(id)}, hero)
+        const response = await client.db(DB_NAME).collection(COLLECTION).deleteOne({_id: ObjectID(id)})
+        return response
     } catch(e){
         console.error(e);
-    } finally {
-        // await client.close();
     }
 }
 
-db_functions.delete = async(id) => {
+db_functions.update = async(id, hero={}) => {
     try{
-        await client.connect()
-        await client.db(DB_NAME).collection(COLLECTION).deleteOne({_id: ObjectID(id)})
+        const response = await client.db(DB_NAME).collection(COLLECTION).updateOne({_id: ObjectID(id)}, {$set: {...hero}})
+        return response
     } catch(e){
         console.error(e);
-    } finally {
-        // await client.close();
     }
 }
 

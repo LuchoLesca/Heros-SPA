@@ -2,7 +2,7 @@ const defaultHero = {
     name: "",
     alter: "",
     appearance: 1900,
-    house: "",
+    house: "marvel",
     biography: "",
     equipment: "",
     images: "1"

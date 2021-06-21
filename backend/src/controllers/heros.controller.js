@@ -10,7 +10,7 @@ herosCtrl.getAllHeros = async (req, res) => {
 }
 
 herosCtrl.getHeroById = async (req, res) => {
-    const id = req.params.id || 'putWhatEverYouWantHere'
+    const id = req.params.id || '000000000000'
     const response = await db.findById(id)
     res.send(response)
 }
@@ -19,26 +19,35 @@ herosCtrl.getHeroById = async (req, res) => {
 herosCtrl.addHero = async (req, res) => {
     const hero = req.body || {}
     if (hero) {
-        await db.insert(hero)
-        console.log("agregado")
+        const response = await db.insert(hero)
+        res.send(response)
     }else{
-        console.log("no agregado")
+        res.send({data: "Hero dont added"})
+    }
+}
+
+
+herosCtrl.deleteHero = async (req, res) => {
+    const id = req.params.id || '000000000000'
+    const response = await db.delete(id)
+    if (response){
+        res.send(response)
+    }else{
+        res.send({data: "Hero dont deleted"})
     }
 }
 
 
 herosCtrl.updateHero = async (req, res) => {
-    const id = req.params.id || 0
     const hero = req.body || {}
-    await db.update(id, hero)
-    res.send("Hero updated")
-}
-
-
-herosCtrl.deleteHero = async (req, res) => {
-    const id = req.params.id || 0
-    await db.delete(id)
-    res.send("Hero deleted")
+    const id = hero._id || '000000000000'
+    delete hero._id
+    const response = await db.update(id, hero)
+    if (response){
+        res.send(response)
+    }else{
+        res.send({data: "Hero dont updated"})
+    }
 }
 
 
