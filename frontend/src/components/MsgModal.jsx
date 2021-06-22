@@ -1,4 +1,3 @@
-// import React from 'react'
 import swal from 'sweetalert';
 import { saveHero, updateHero, deleteHero } from 'services/db_functions'
 

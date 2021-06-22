@@ -3,6 +3,7 @@ const { MongoClient, ObjectID } = require("mongodb");
 const DB_NAME = "herosdb"
 const COLLECTION =  "heros"
 const URI = "mongodb://localhost:27017"
+// const URI = "mongodb://mongo:27017"
 
 const client = new MongoClient(URI, { 
     useUnifiedTopology: true,

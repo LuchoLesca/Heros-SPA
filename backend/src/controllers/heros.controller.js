@@ -1,6 +1,6 @@
 const herosCtrl = {};
 
-const db = require('../db_functions');
+const db = require('../database');
 
 herosCtrl.getAllHeros = async (req, res) => {
     const house = req.query.house || ""
@@ -49,8 +49,6 @@ herosCtrl.updateHero = async (req, res) => {
         res.send({data: "Hero dont updated"})
     }
 }
-
-
 
 
 module.exports = herosCtrl;

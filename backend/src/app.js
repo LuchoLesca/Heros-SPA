@@ -1,8 +1,5 @@
-// Es el encargado de tener tan solo el código del servidor, en este caso, código de framework
-// Aqui no se iniciará, solo se definirá
-
 const express = require('express');
-const cors = require('cors');  // Nos permitirá intercambiar datos entre servidores (front y back), sin errores
+const cors = require('cors');
 
 // Create objects
 const app = express();
@@ -13,10 +10,9 @@ app.set('port', process.env.PORT || 4000);
 
 // Middlewares
 app.use(cors());
-app.use(express.json())  // para que el servidor pueda entender formatos json y ciertos strings
+app.use(express.json())
 
-
-// Routes (definimos las urls que la app de react podrá visitar/solicitar/acceder)
+// Routes
 
 app.use('/api', require('./routes/heros'))
 

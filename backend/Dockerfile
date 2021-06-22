@@ -1,7 +1,11 @@
-FROM node:latest
-RUN npm install --silent
+FROM node:14
 
 WORKDIR /backend
-COPY . ./backend
 
-#RUN npm run build
+COPY . .
+
+RUN npm install
+
+EXPOSE 4000
+
+CMD ["npm", "start"]

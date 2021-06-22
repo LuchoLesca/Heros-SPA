@@ -1,6 +1,3 @@
-// Archivo que arrancará el servidor
-// Aqui importaremos los demás módulos
-
 const app = require('./app');
 
 
