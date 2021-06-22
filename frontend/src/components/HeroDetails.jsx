@@ -4,12 +4,13 @@ import { useHistory } from 'react-router-dom';
 
 import Carousel from './Carousel';
 
-import {capitalize} from 'utils/stringTreatment.js';
+import { capitalize, capitalizeBegin} from 'utils/stringTreatment.js';
 import setDefaultSrc from 'utils/setDefaultSrc.js';
-
 import { defaultHouses } from 'utils/defaultObjets';
 
+// eslint-disable-next-line
 import MsgModal from './MsgModal';
+import swal from 'sweetalert';
 
 
 const HeroDetails = ({ hero, setHero, editing }) => {
@@ -19,8 +20,36 @@ const HeroDetails = ({ hero, setHero, editing }) => {
     const handleChange = (evt) => {
         setHero({
             ...hero,
-            [evt.target.name] : evt.target.value.toLowerCase()
+            [evt.target.name] : evt.target.value.toLowerCase().trimStart()
         })
+    }
+
+
+    const handleBtnClick = (evt) => {
+        const name = evt.target.name
+
+        if (name === "delete"){
+            MsgModal({btnName:name, hero:hero})
+        }else{
+            const fieldsToBeCompleted = incompleteFields()
+            const form_complete = (fieldsToBeCompleted.length === 0)
+            if (form_complete) {
+                MsgModal({btnName:name, hero:hero})
+            } else {
+                swal("Required Fields", `You must complete de following fields: ${fieldsToBeCompleted.join(', ')}`, "warning", {button: "Continue"});
+            }
+        }
+    }
+
+    const incompleteFields = () => {
+        const mayBeIncomplete = ["alter", "equipment"]
+        let missingFields = []
+        for (let atr in hero){
+            if(!hero[atr] && !mayBeIncomplete.includes(atr)){
+                missingFields.push(atr)
+            }
+        }
+        return missingFields
     }
     
 
@@ -43,7 +72,6 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                             name="name"
                             value={capitalize(hero.name)}
                             onChange={handleChange}
-                            required
                         />
                     </div>
                     <div className="form-group mb-3">
@@ -71,7 +99,6 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                             className="form-select"
                             name="house" value={hero.house}
                             onChange={handleChange}
-                            required
                         >
                             {defaultHouses.map(item => (
                                     <option
@@ -101,7 +128,6 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                             name="appearance"
                             value={hero.appearance.toString()}
                             onChange={handleChange}
-                            required
                         />
                     </div>
                     <div className="form-group mb-3">
@@ -112,9 +138,8 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                         <label className="form-label">Biography:</label>
                         <textarea className="form-control"
                             name="biography" style={{height:"175px", resize:"none"}}
-                            value={hero.biography}
+                            value={capitalizeBegin(hero.biography)}
                             onChange={handleChange}
-                            required
                         />
                     </div>
                     <div className="form-group mb-3">
@@ -123,19 +148,23 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                             <input className="form-control" type="number" min="1" name="images" value={hero.images} onChange={handleChange}/>
                         </div>
                     </div>
-                    {
-                        editing
-                            ?   (<div className="form-group mb-3">
-                                    <button className="btn btn-dark" onClick={ history.goBack }>Back</button>
-                                    <button className="btn btn-warning mx-2" name="update" onClick={() => MsgModal({btnName: "update", hero})}>Update</button>
-                                    <button className="btn btn-danger" name="delete" onClick={() => MsgModal({btnName: "delete", hero})}>Delete</button>
-                                </div>)
-                            :   (<div className="form-group mb-3">
-                                    <button className="btn btn-dark" onClick={ history.goBack }>Back</button>
-                                    <button className="btn btn-warning mx-2" name="Add" onClick={() => MsgModal({btnName: "add", hero})}>Add</button>
-                                </div>)
-                            
-                    }
+                    
+                    <div className="form-group mb-3">
+                        <button className="btn btn-dark" onClick={ history.goBack }>Back</button>
+                        {
+                            editing
+                                ?   (   
+                                        <>
+                                            <button className="btn btn-warning mx-2" name="update" onClick={handleBtnClick}>Update</button>
+                                            <button className="btn btn-danger" name="delete" onClick={handleBtnClick}>Delete</button>
+                                        </>
+                                    )
+                                :   (
+                                        <button className="btn btn-warning mx-2" name="add" onClick={handleBtnClick}>Add</button>
+                                    )
+                        }
+                                    
+                    </div>
                 </div>
             </div>
         </div>
