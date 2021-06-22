@@ -3,7 +3,7 @@ import React from 'react';
 import HeroCard from './HeroCard';
 
 
-const ListHeros = ({ heros }) => {
+const ListHeros = ({ heros=[]}) => {
 
     return (
         heros.map(hero =>

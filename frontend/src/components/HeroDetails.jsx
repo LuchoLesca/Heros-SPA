@@ -13,7 +13,6 @@ import MsgModal from './MsgModal';
 
 
 const HeroDetails = ({ hero, setHero, editing }) => {
-    // console.log(editing)
 
     const history = useHistory()
 
@@ -137,13 +136,6 @@ const HeroDetails = ({ hero, setHero, editing }) => {
                                 </div>)
                             
                     }
-{/* 
-                    <div className="form-group mb-3">
-                        <button className="btn btn-dark" onClick={ history.goBack }>Back</button>
-                        <button className="btn btn-warning mx-2" name="update">Update</button>
-                        <button className="btn btn-danger" name="delete">Delete</button>
-                    </div>
-                     */}
                 </div>
             </div>
         </div>

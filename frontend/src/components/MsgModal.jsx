@@ -1,6 +1,5 @@
 // import React from 'react'
 import swal from 'sweetalert';
-// eslint-disable-next-line
 import { saveHero, updateHero, deleteHero } from 'services/db_functions'
 
 

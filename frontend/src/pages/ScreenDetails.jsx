@@ -18,7 +18,8 @@ const ScreenDetails = () => {
     useEffect(() => {
         const fetchHeroData = async() => {
             const res = await getHero(id)
-            setHero(res.data)
+            const data = res ? res.data : defaultHero
+            setHero(data)
         }
         
         setLoading(true)

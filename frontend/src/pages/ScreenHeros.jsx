@@ -21,7 +21,8 @@ const HerosSearching = () => {
     useEffect(() => {
         const fetchHeros = async() => {
             const res = await getHeros({house, name})
-            setHeros(res.data)
+            const listHeros = res ? res.data : []
+            setHeros(listHeros)
         }
         setLoading(true)
         fetchHeros()

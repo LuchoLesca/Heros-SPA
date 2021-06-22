@@ -1,26 +1,45 @@
 import axios from 'axios';
 
 const getHeros = async({house="", name=""}) => {
-    const response = await axios.get("http://localhost:4000/api/heros", {params:{name, house}})
-    return response
+    try{
+        const response = await axios.get("http://localhost:4000/api/heros", {params:{name, house}})
+        return response
+    }catch(e){
+        return null
+    }
 }
 
 const getHero = async(id) => {
-    const response = await axios.get(`http://localhost:4000/api/hero/${id}`)
-    return response
+    try{
+        const response = await axios.get(`http://localhost:4000/api/hero/${id}`)
+        return response
+    }catch(e){
+        return null
+    }
 }
 
 const saveHero = async(hero={}) => {
-    await axios.post("http://localhost:4000/api/hero", hero)
+    try{
+        await axios.post("http://localhost:4000/api/hero", hero)
+    }catch(e){
+        console.error("Save Error")
+    }
 }
 
 const deleteHero = async(id) => {
-    console.log(id)
-    await axios.delete(`http://localhost:4000/api/hero/${id}`)
+    try{
+        await axios.delete(`http://localhost:4000/api/hero/${id}`)
+    }catch(e){
+        console.error("Delete Error")
+    }
 }
 
 const updateHero = async(hero={}) => {
-    await axios.put(`http://localhost:4000/api/hero`, hero)
+    try{
+        await axios.put(`http://localhost:4000/api/hero`, hero)
+    }catch(e){
+        console.error("Update Error")
+    }
 }
 
 export { deleteHero, getHero, getHeros, saveHero, updateHero }
