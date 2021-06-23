@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 
 import NavBar from 'components/ui/NavBar';
-import HerosSearching from 'pages/ScreenHeros';
+import ScreenHeros from 'pages/ScreenHeros';
 import ScreenDetails from 'pages/ScreenDetails';
 import Error404 from 'pages/Error404';
 
@@ -17,18 +17,18 @@ const AppRouter = () => {
                     <NavBar />
                     <div className="container mt-5 p-5">
                         <Switch>
-                            <Route exact path="/hero/:id" component={ScreenDetails} />
-                            <Route exact path="/marvel" component={HerosSearching} />
-                            <Route exact path="/dc" component={HerosSearching} />
-                            <Route exact path="/add" component={ScreenDetails} />
-                            <Route exact path ="/" component={HerosSearching} />
+                            <Route exact path ="/" component={ScreenHeros} />
+                            <Route path="/hero/:id" component={ScreenDetails} />
+                            <Route path="/marvel" component={ScreenHeros} />
+                            <Route path="/dc" component={ScreenHeros} />
+                            <Route path="/add" component={ScreenDetails} />
                             <Route path="*" component={Error404} />
                         </Switch>
                     </div>
                 </Router>
             </SearchContextProvider>
-        </>
-    );
+        </>)
+    
 }
  
 export default AppRouter;

@@ -7,7 +7,7 @@ import ListHeros from 'components/ListHeros';
 
 import { getHeros } from 'services/db_functions';
 
-const HerosSearching = () => {
+const ScreenHeros = () => {
 
     
     const { name } = useContext(Context)
@@ -39,4 +39,4 @@ const HerosSearching = () => {
     )
 }
 
-export default HerosSearching;
+export default ScreenHeros;

@@ -10,7 +10,7 @@ import MsgModal from './MsgModal';
 import swal from 'sweetalert';
 
 
-function Form({ hero, setHero, editing}) {
+function Form({ hero, setHero, editing }) {
 
     const history = useHistory()
 
