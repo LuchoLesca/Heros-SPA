@@ -1,6 +1,6 @@
 const herosCtrl = {};
 
-const db = require('../database');
+const db = require('../db/index');
 
 herosCtrl.getAllHeros = async (req, res) => {
     const house = req.query.house || ""

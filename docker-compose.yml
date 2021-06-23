@@ -1,37 +1,35 @@
 version: "3"
 services:
-  fronted:
+  frontend:
     build: ./frontend
-    container_name: 'heros_api_front'
-    # command: sh -c 'npm install; npm start'
+    container_name: 'herosspa_front'
     ports:
-      - '3000:3000'
+      - '3001:3000'
     volumes:
-      - ./frontend:/frontend
+      - ./frontend:/usr/src/app-front
     depends_on:
-      - "backend"
-    stdin_open: true
-    tty: true
-    environment:
-     - NODE_ENV=development
-     - CHOKIDAR_USEPOLLING=true
+      - 'backend'
+    # stdin_open: true
+    # tty: true
+
+    # environment:
+    #  - NODE_ENV=development
+    #  - CHOKIDAR_USEPOLLING=true
+
   backend:
     build: ./backend
-    container_name: 'heros_api_back'
-    restart: 'always'
-    # command: sh -c 'npm install; npm start'
+    container_name: 'herosspa_back'
     ports:
-      - '5000:4000'
+      - '4000:4000'
     volumes:
-      - ./backend:/backend
+      - ./backend:/usr/src/app-back
     depends_on:
-      - "mongo"
+      - 'mongo-db'
 
-  mongo:
+  mongo-db:
     image: mongo
-    container_name: 'mongo_db_heros'
-    restart: 'always'
+    container_name: 'herosspa_db'
     ports:
-      - "27018:27017"
-    # logging:
-      # driver: none
+     - 27018:27017
+
+

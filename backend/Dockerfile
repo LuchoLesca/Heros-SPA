@@ -1,11 +1,14 @@
 FROM node:14
 
-WORKDIR /backend
+WORKDIR /usr/src/app-back
+
+COPY package*.json ./
+
+RUN npm install --silent
 
 COPY . .
 
-RUN npm install
-
 EXPOSE 4000
 
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

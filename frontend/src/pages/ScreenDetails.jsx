@@ -46,7 +46,7 @@ const ScreenDetails = () => {
                             <div className="col-6">
                                 <Carousel
                                     name={heroData.name}
-                                    images={heroData.images}
+                                    images={parseInt(heroData.images)}
                                 />    
                             </div>
                             {/* Form */}
