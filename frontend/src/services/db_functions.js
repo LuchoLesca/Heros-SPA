@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const URI = `http://localhost:4000/api`
-// const URI = `http://backend:4000/api`
 
 const getHeros = async({house="", name=""}) => {
     try{

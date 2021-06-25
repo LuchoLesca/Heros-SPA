@@ -1,5 +1,4 @@
 const { MongoClient, ObjectID } = require("mongodb");
-const data = require('../data/heros.json')
 
 // Constants
 // const HOST_NAME = "localhost"
@@ -7,7 +6,7 @@ const HOST_NAME = "mongo-db"
 const PORT = 27017
 const URI = `mongodb://${HOST_NAME}:${PORT}`
 const DB_NAME = "herosdb"
-const COLLECTION_NAME =  "heros"
+const COLLECTION_NAME = "heros"
 
 // Mongodb options
 const options = {
@@ -32,13 +31,6 @@ const connection = async() => {
     }
 }
 
-
-const uploadInitHeros = async() => {
-    const db = await connection()
-    await db.insertMany(data)
-}
-
-uploadInitHeros()
 
 const db_functions = {}
 

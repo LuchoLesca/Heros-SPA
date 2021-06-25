@@ -1,20 +1,14 @@
 version: "3"
 services:
-  frontend:
-    build: ./frontend
-    container_name: 'herosspa_front'
-    ports:
-      - '3001:3000'
-    volumes:
-      - ./frontend:/usr/src/app-front
-    depends_on:
-      - 'backend'
-    # stdin_open: true
-    # tty: true
-
-    # environment:
-    #  - NODE_ENV=development
-    #  - CHOKIDAR_USEPOLLING=true
+  # frontend:
+  #   build: ./frontend
+  #   container_name: 'herosspa_front'
+  #   ports:
+  #     - '3000:3000'
+  #   volumes:
+  #     - ./frontend:/usr/src/app-front
+  #   depends_on:
+  #     - 'backend'
 
   backend:
     build: ./backend
@@ -30,6 +24,11 @@ services:
     image: mongo
     container_name: 'herosspa_db'
     ports:
-     - 27018:27017
+     - '27018:27017'
+
+  dbseed:
+    build: ./mongo-seed
+    links:
+      - mongo-db
 
 
