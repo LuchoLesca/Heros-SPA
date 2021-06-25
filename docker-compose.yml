@@ -5,8 +5,8 @@ services:
     container_name: 'herosspa_front'
     ports:
       - '3000:3000'
-    volumes:
-      - ./frontend:/usr/src/app-front
+    # volumes:
+    #   - ./frontend:/usr/src/app-front
     depends_on:
       - 'backend'
 
@@ -15,8 +15,8 @@ services:
     container_name: 'herosspa_back'
     ports:
       - '4000:4000'
-    volumes:
-      - ./backend:/usr/src/app-back
+    # volumes:
+    #   - ./backend:/usr/src/app-back
     depends_on:
       - 'mongo-db'
 
