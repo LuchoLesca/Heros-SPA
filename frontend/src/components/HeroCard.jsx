@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { capitalize, capitalizeBegin } from 'utils/stringTreatment.js';
-import setDefaultSrc from 'utils/setDefaultSrc';
+import { capitalize, capitalizeBegin } from 'helpers/stringTreatment.js';
+import setDefaultSrc from 'helpers/setDefaultSrc';
 
 
 const HeroCard = ({ heroData } ) => {

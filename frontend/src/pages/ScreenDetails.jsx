@@ -6,7 +6,7 @@ import Carousel from 'components/Carousel';
 import Form from 'components/Form';
 
 import { getHero } from 'services/db_functions';
-import { defaultHero } from 'utils/defaultObjets';
+import { defaultHero } from 'helpers/defaultObjets';
 
 
 const ScreenDetails = () => {  

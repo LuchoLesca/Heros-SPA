@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useHistory } from 'react-router-dom';
 
-import { capitalize, capitalizeBegin} from 'utils/stringTreatment.js';
-import setDefaultSrc from 'utils/setDefaultSrc.js';
-import { defaultHouses } from 'utils/defaultObjets';
+import { capitalize, capitalizeBegin} from 'helpers/stringTreatment.js';
+import setDefaultSrc from 'helpers/setDefaultSrc.js';
+import { defaultHouses } from 'helpers/defaultObjets';
 
 import MsgModal from './MsgModal';
 import swal from 'sweetalert';
@@ -48,8 +48,7 @@ function Form({ hero, setHero, editing }) {
         return missingFields
     }
 
-
-
+    
     return (
         <>
             <div className="form-group mb-3">

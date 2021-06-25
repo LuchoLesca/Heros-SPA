@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
-import setDefaultSrc from 'utils/setDefaultSrc.js';
+import setDefaultSrc from 'helpers/setDefaultSrc.js';
 
 
 function Carousel({ name, images }) {
 
-    const [selected, setSelected] = useState(1)
-
     let numbersList = []
     for(let i = 1; i <= images; i++) numbersList.push(i)
-
-
-    useEffect(() => {
-        if (selected > images) setSelected(1)
-        if (selected < 1) setSelected(images)
-    // eslint-disable-next-line
-    }, [selected])
  
    
     return (
@@ -58,10 +49,10 @@ function Carousel({ name, images }) {
                 </div>
 
                 {/* Controls */}
-                <button name="previous" className="carousel-control-prev" type="button" data-bs-target="#images-carousel" data-bs-slide="prev" onClick={() => setSelected(selected-1)}>
+                <button name="previous" className="carousel-control-prev" type="button" data-bs-target="#images-carousel" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                 </button>
-                <button name="next" className="carousel-control-next" type="button" data-bs-target="#images-carousel" data-bs-slide="next" onClick={() => setSelected(selected+1)}>
+                <button name="next" className="carousel-control-next" type="button" data-bs-target="#images-carousel" data-bs-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                 </button>
             </div>
